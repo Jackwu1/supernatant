@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#wrap {
+				position: relative;
+				left: 40%;
+				margin-top: 100px;
+			}
+			.floatDiv {
+				position: absolute;
+				width: 100px;
+				height: 30px;
+				left: 60px;
+				top: -10px;
+				border: 1px solid red;
+				line-height: 30px;
+				text-align: center;
+				display: none;
+			}
+			.floatDiv:before {
+				position: absolute;
+				  right: 100%;
+				  top: 5px;
+				  border: 10px solid transparent;
+				  border-right-color: red;
+				  content: '';
+			}
+			.floatDiv:after {
+				position: absolute;
+				  right: 100%;
+				  top: 5px;
+				  border: 10px solid transparent;
+				  border-right-color: white;
+				  content: '';
+				  margin-right: -1px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="wrap">
+			<button>点我</button>
+			<div class="floatDiv">
+				<input type="checkbox"> 浮层
+			</div>
+		</div>
+	</body>
+	<script type="text/javascript">
+		let wrap = document.getElementById('wrap');
+		let floatDiv = document.getElementsByClassName('floatDiv')[0]
+		console.log(wrap)
+		let btn = document.getElementsByTagName('button')[0];
+		btn.addEventListener('click', function(e) {
+			e.stopPropagation()
+			floatDiv.style.display = 'block'
+		})
+		floatDiv.addEventListener('click', function(e) {
+			e.stopPropagation()
+			floatDiv.style.display = 'block'
+		})
+		document.addEventListener('click', function(e) {
+			floatDiv.style.display = 'none'
+		})
+		
+	</script>
+</html>
