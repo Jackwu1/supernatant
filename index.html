@@ -54,7 +54,12 @@
 		let btn = document.getElementsByTagName('button')[0];
 		btn.addEventListener('click', function(e) {
 			e.stopPropagation()
-			floatDiv.style.display = 'block'
+			if(floatDiv.style.display === 'block') {
+				floatDiv.style.display = 'none'
+			}else {
+				floatDiv.style.display = 'block'
+			}
+			
 		})
 		floatDiv.addEventListener('click', function(e) {
 			e.stopPropagation()
